@@ -5,7 +5,6 @@ export default function Experiences() {
     <View style={styles.container}>
 
       <View style={styles.header}>
-        /* je vais devoir mettre un border aux titres border radius et tout : en haut de page */
         <Text style={styles.headerText}>Expériences</Text>
       </View>
 
@@ -20,11 +19,14 @@ const styles = StyleSheet.create({
     header: {
       backgroundColor: '#000',
       justifyContent: 'center',
-      height: 100,
-      paddingLeft: 16,
+      height: 120,
+      paddingLeft: 30,
     },
     headerText: {
         color: '#b30202',
+        fontSize: 25,
+        fontWeight: 'bold',
+
     },
 
     container: {

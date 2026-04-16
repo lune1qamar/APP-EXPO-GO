@@ -3,13 +3,14 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 export default function Presentation() {
   return (
      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>À Propos de moi</Text></View>
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#000' }}>
       <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
     <View style={styles.card}>
       <Text style={styles.title}>Ma vision</Text>
-      <Text style={styles.text}>Je débute en création de sites performants, j'allie la rigueur technique du développement Backend (Symfony/PHP) à l'élégance du Design UI/UX. Mon objectif est de transformer des idées en expériences numériques fluides et marquantes.</Text>
+      <Text style={styles.text}>    Je débute en création de sites performants, j'allie la rigueur technique du développement Backend (Symfony/PHP) à l'élégance du Design UI/UX.</Text>
+      <Text>  </Text>
+      <Text style={styles.text}>    Mon objectif est de transformer des idées en expériences numériques fluides et marquantes.</Text>
+    
     </View>  
       </ImageBackground>
       </View>
@@ -46,19 +47,18 @@ const styles = StyleSheet.create({
 
     text: {
         color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 15,
         marginBottom: 10,
-        textAlign: 'center',
+        textAlign: 'left',
     },
     card: {
-      backgroundColor: 'rgba(0, 0, 0, 0.69)', //blanc transparent
+      backgroundColor: 'rgba(173, 26, 26, 0.56)', //noir transparent
       padding: 20,
       borderRadius: 15,
       width: '90%',
     },
     title: {
-      color: '#b30202',
+      color: '#ffffff',
       fontSize: 22,
       fontWeight: 'bold',
       textAlign: 'center',

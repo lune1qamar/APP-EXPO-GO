@@ -3,12 +3,7 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 export default function Experiences() {
   return (
     <View style={styles.container}>
-
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Expériences</Text>
-      </View>
-
-      <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
+   <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
       <Text style={styles.text}>Mes Expériences Professionnelles</Text>
       </ImageBackground>
     </View>

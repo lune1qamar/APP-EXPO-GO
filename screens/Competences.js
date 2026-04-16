@@ -1,16 +1,37 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 
 export default function Competences() {
   return (
-    <View style={styles.container}>
-    <View style={styles.header}>
-      <Text style={styles.headerText}>Compétences</Text></View>
+    <ScrollView style={styles.container}>
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#000' }}>
-      <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
-      <Text style={{ color: 'white' }}>Mes Compétences</Text>
-      </ImageBackground>
+        <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
+        <View style={styles.card}>
+          <Text style={styles.title}>Frontend</Text>
+          <Text style={styles.text}>HTML5/CSS3</Text> 
+          <Text style={styles.text}>JavaScript ES6</Text> 
+          <Text style={styles.text}>Tailwind CSS</Text> 
+          <Text style={styles.text}>Figma UI/UX</Text>
+        </View>
+
+        <View style={styles.card}>          
+          <Text style={styles.title}>Backend</Text>
+          <Text style={styles.text}>PHP (POO)</Text> 
+          <Text style={styles.text}>Symfony</Text> 
+          <Text style={styles.text}>MySQL/PDO</Text> 
+          <Text style={styles.text}>WordPress</Text>
+        </View>
+
+        <View style={styles.card}>          
+          <Text style={styles.title}>Outils</Text>
+          <Text style={styles.text}>Git / GitHub</Text> 
+          <Text style={styles.text}>Intégration IA</Text> 
+          <Text style={styles.text}>Laragon</Text> 
+          <Text style={styles.text}>Agile</Text>
+        </View>
+
+        </ImageBackground>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -27,12 +48,26 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    title: {
+      color: '#fff',
+      fontSize: 16,
+      fontWeight: 'bold',
+      marginBottom: 12,
+    },
+
+    card: {
+      backgroundColor: 'rgba(173, 26, 26, 0.56)', //rouge transparent
+      padding: 20,
+      margin: 10,
+      borderRadius: 15,
+      width: '90%',
+    },
+
     container: {
-        flex: 1, 
-        backgroundColor: '#000',
+        flex: 1,
     },
     image: {
-       opacity: 0.30,
+       opacity: 0.40,
        resizeMode: 'cover',
     },
      background: {
@@ -45,6 +80,11 @@ const styles = StyleSheet.create({
 
     text: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 12,
+        borderWidth: 2,
+        padding: 10,
+        borderColor: '#fff',
+        borderRadius: 6,
+        margin: 5,
     },
 });

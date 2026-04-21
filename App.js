@@ -55,7 +55,7 @@ function Tabs() {
         })}>
           
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Experiences" component={Experiences} options={{tabBarLabel: "Expériences", }}/>
+        <Tab.Screen name="Experiences" component={Experiences} options={{tabBarLabel: "Formations", }}/>
         <Tab.Screen name="Competences" component={Competences} options={{tabBarLabel: "Compétences", }}/>
         <Tab.Screen name="Presentation" component={Presentation} options={{tabBarLabel: "Présentation", }}/>
       </Tab.Navigator>
@@ -66,14 +66,31 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#000',
+          backgroundColor: 'rgb(0, 0, 0)',
         },
-        headerTintColor: '#bd0505',
+        headerTintColor: 'red',
         headerTitleStyle: {
           fontWeight: 'bold',
+          fontSize: 30,
+          letterSpacing: 1,
+
+          textShadowColor: 'rgba(232, 129, 129, 0.89)',
+          textShadowOffset: { width: 0.5, height: 0.5 },
+          textShadowRadius: 7,
+
         },
       }}>
-        <Stack.Screen name="Nav" component={Tabs} options={{ title: 'home'}}/>
+        <Stack.Screen name="Nav" component={Tabs} options={({ route }) =>{
+          const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+          let title;
+            if(routeName === 'Home') title = '</ Home >';
+            else if (routeName === 'Experiences') title = '</ Formations >';
+            else if (routeName === 'Competences') title = '</ Compétences >';
+            else if (routeName === 'Presentation') title = '</ À Propos de moi >';
+
+            return { title };
+        }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

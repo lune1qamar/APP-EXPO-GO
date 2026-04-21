@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 38,
     fontWeight: 'bold',
     color:'white',
-    
-
+  
     /* ombre */
     textShadowColor: 'rgba(225, 9, 9, 0.87)',
     textShadowOffset: { width: 2, height: 2 },
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    opacity: 0.20,
+    opacity: 0.30,
     resizeMode: 'cover',
   },
   background: {

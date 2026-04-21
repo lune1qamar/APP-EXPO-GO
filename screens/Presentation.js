@@ -1,67 +1,105 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Image, Linking, Pressable, ScrollView } from 'react-native';
+import { useState } from 'react';
 
 export default function Presentation() {
+
+
+let text_variable="Qamar EL OTMANI";
+
+const [showPhone, setShowPhone] = useState(false);
+const phone='+33 7 53 49 89 56';
+
+const cvUrl = "https://drive.google.com/uc?export=download&id=1zvckvUI1axZtNtgl_YfQX5BHQ2Dbb2_i";
+const openCV = () => {
+  Linking.openURL(cvUrl);
+};
+
   return (
+  <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent}>
      <View style={styles.container}>
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#000' }}>
-      <ImageBackground source= {require('../assets/moi.png')} style={styles.background} imageStyle={styles.image}>
-    <View style={styles.card}>
-      <Text style={styles.title}>Ma vision</Text>
-      <Text style={styles.text}>    Je débute en création de sites performants, j'allie la rigueur technique du développement Backend (Symfony/PHP) à l'élégance du Design UI/UX.</Text>
-      <Text>  </Text>
-      <Text style={styles.text}>    Mon objectif est de transformer des idées en expériences numériques fluides et marquantes.</Text>
-    
-    </View>  
-      </ImageBackground>
-      </View>
+        <View style={styles.imageShadow}>
+          <Image source= {require('../assets/profil2.png')} style={styles.image} blurRadius={1}/>
+          <View><Text style={styles.var}>{text_variable}</Text></View>
+        </View>
+
+        <Text style={[{ color: '#fff', fontSize: 18, letterSpacing: 4, marginBottom: 15}, styles.text]}>Web Developer<Text style={{color: 'red'}}> &</Text> Designer</Text>
+        <Text style={{color:'#fff', margin: 'auto', letterSpacing: 2, textAlign: 'center', paddingHorizontal: 25, marginBottom: 15 }}>  Je débute en création de sites web, j'allie la rigueur technique du développement Backend (Symfony/PHP) à l'élégance du Design UI/UX. {"\n\n"}  Mon objectif est de transformer des idées en expériences numériques fluides et marquantes !</Text>
+
+        <View style={styles.cardContainer}>
+          <Pressable style={styles.card} onPress={() => setShowPhone(!showPhone)}><Text style={[{fontSize: 15}, styles.text]}>Contactez-moi</Text></Pressable>  
+          <Pressable style={styles.card} onPress={openCV}><Text style={[{fontSize: 15}, styles.text]}>Télécharger CV</Text></Pressable>
+        </View>
+
+         {showPhone && (
+          <Text style={{ color: '#fff', marginTop: 20, fontSize: 16 }}>
+            📞 {phone}
+          </Text>
+        )}
+          
     </View>
+</ScrollView>
   );
 }
+
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#000',
-        justifyContent: 'center',
-        height: 120,
-        paddingLeft: 30,
-    },
-    headerText: {
-        color: '#b30202',
-        fontSize: 25,
-        fontWeight: 'bold',
-    },
+  
     container: {
-        flex: 1,
-        backgroundColor: '#000',
+      alignItems: 'center',
     },
+
+    var:{
+      fontWeight: 'bold',
+      fontSize: 24,
+      color: '#fff',
+      letterSpacing: 2,
+    },
+
+    imageShadow:{
+      width: '65%',
+      aspectRatio: '0.8',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 20,
+    },
+
     image: {
-       opacity: 0.30,
-       resizeMode: 'cover',
+      width: '100%',
+      height: '100%',
+      borderRadius: 25,
+      borderWidth: 1,
+      borderColor: '#ffffff14',
+      resizeMode: 'cover',
+      opacity: 0.60,
     },
-     background: {
-       flex: 1,
-       width: '100%',
-       height: '100%',
-       alignItems: 'center',
-       justifyContent: 'center',
+
+    cardContainer:{
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '90%',
+    },
+
+    card: {
+      backgroundColor: 'rgba(167, 0, 0, 0.37)', //rouge transparent
+      padding: 20,
+      borderRadius: 50,
+      borderWidth: 1,
+      borderColor: 'rgba(210, 210, 210, 0.41)',
+      width: '45%',
     },
 
     text: {
-        color: '#fff',
-        fontSize: 15,
-        marginBottom: 10,
-        textAlign: 'left',
-    },
-    card: {
-      backgroundColor: 'rgba(173, 26, 26, 0.56)', //noir transparent
-      padding: 20,
-      borderRadius: 15,
-      width: '90%',
-    },
-    title: {
-      color: '#ffffff',
-      fontSize: 22,
+      color: '#fff',
       fontWeight: 'bold',
-      textAlign: 'center',
-      marginBottom: 12,
-    }
+      textShadowColor: 'rgba(255, 255, 255, 0.66)',
+      textShadowOffset: { width: 0.5, height: 0.5 },
+      textShadowRadius: 3,
+    },
+
+    scrollContent: {
+      flexGrow: 1,
+      alignItems: 'center',
+      paddingTop: 40,
+      paddingBottom: 40,
+      backgroundColor: '#0d0d0d',
+    },
 });

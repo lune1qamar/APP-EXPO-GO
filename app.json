@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "cv_qamar",
+    "name": "Luna 🌕",
     "slug": "cv_qamar",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,10 +20,17 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.luna_2001.cv_qamar"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8c7e9830-39d5-450a-81c5-a626f36ca4ce"
+      }
+    },
+    "owner": "luna_2001"
   }
 }
